@@ -31,12 +31,15 @@ void negative_integer(int firstNumber)
 {
     unsigned int s_bit, com;
     
-    s_bit = sizeof(firstNumber)*8;
-    com = 1<<(s_bit - 1); 
+    unsigned int invert_number = firstNumber * -1; 
 
+    int new_number = (~invert_number) + 1;
+
+    s_bit = sizeof(new_number)*8;
+    com = 1<<(s_bit - 1); 
     for (int i = 0; i < s_bit; i++)
     {   
-        printf("%u",(com & firstNumber) ? 1 : 0 );
+        printf("%u",(com & new_number) ? 1 : 0 );
         com >>= 1; 
     }
 
